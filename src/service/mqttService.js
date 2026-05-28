@@ -1,5 +1,5 @@
 import init from 'react_native_mqtt'
-import { AsyncStorage } from '@react-native-async-storage/async-storage'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 init({
     size: 100000,
@@ -29,14 +29,14 @@ export default class MQTTService {
             useSSL: true,
             onSuccess: onConnect,
             onFailure: onFailure,
-            setTimeout: 3,
+            timeout: 3,
             keepAliveInterval: 60,
         };
 
         this.client.connect(options);
     }
 
-    substribe(topic) {
+    subscribe(topic) {
         this.client.subscribe(topic);
     }
 
